@@ -51,8 +51,8 @@ public class Application {
 //        daoP2.save(partecipazione3);
 //        daoP2.save(partecipazione4);
 //        daoP2.save(partecipazione5);
-//          Evento evento2 = daoE.findById(2);
-//          evento2.getPartecipazioni().forEach( System.out::println);
+          Evento evento2 = daoE.findById(2);
+          evento2.getPartecipazioni().forEach( System.out::println);
 //       dao1.save(persona1);
 //        dao1.save(persona2);
 //        dao2.save(location1);
