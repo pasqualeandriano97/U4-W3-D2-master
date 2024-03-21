@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "persona")
 public class Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
 
 
@@ -24,6 +24,10 @@ public class Persona {
 
     @OneToMany(mappedBy = "persona")
     private List<Partecipazione> partecipazioni;
+
+  @ManyToOne
+   @JoinColumn(name = "atleti_id")
+    private GaraDiAtletica altleti;
 
 
 

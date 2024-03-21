@@ -8,10 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="eventi")
 public class Evento {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue
   private long id;
 
   @Column(name="titolo")
@@ -27,7 +28,7 @@ public class Evento {
   @Column (name="numeroMassimoPartecipanti")
     private int maxParticipants;
 @ManyToOne
-@JoinColumn(name = "location_Id",nullable = false)
+@JoinColumn(name = "location_Id", nullable = false)
 private Location location;
 
 @OneToMany(mappedBy = "evento")

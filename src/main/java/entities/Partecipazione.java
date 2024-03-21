@@ -12,7 +12,7 @@ public class Partecipazione {
     @Enumerated(EnumType.STRING)
     private Stato stato;
     @ManyToOne
-    @JoinColumn(name = "persona_Id", nullable = false,unique = true)
+    @JoinColumn(name = "persona_Id", nullable = false)
     private Persona persona;
 
 
