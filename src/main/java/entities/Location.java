@@ -23,10 +23,10 @@ public class Location {
 
     }
 
-    public Location(String nome, String città,List<Evento>eventi) {
+    public Location(String nome, String città) {
         this.nome = nome;
         this.città = città;
-        this.eventi = eventi;
+
     }
     public long getId() {
         return id;

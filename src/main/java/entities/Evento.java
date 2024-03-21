@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="eventi")
@@ -29,20 +30,22 @@ public class Evento {
 @JoinColumn(name = "location_Id",nullable = false)
 private Location location;
 
-@OneToOne(mappedBy = "evento")
-private Partecipazione partecipazione;
+@OneToMany(mappedBy = "evento")
+private List< Partecipazione> partecipazioni;
 
 
   public Evento() {}
-    public Evento(String title, Date date, String description, tipoEvento tipo, int maxParticipants,Partecipazione partecipazione,Location location ) {
+    public Evento(String title, Date date, String description, tipoEvento tipo, int maxParticipants,Location location ) {
       this.title = title;        this.date = date;
         this.description = description;
         this.tipo = tipo;
         this.maxParticipants = maxParticipants;
-        this.partecipazione = partecipazione;
+
             this.location = location;
 
     }
+
+
 
     public long getId() {
         return id;
@@ -66,6 +69,10 @@ private Partecipazione partecipazione;
 
     public int getMaxParticipants() {
         return maxParticipants;
+    }
+
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
     }
 
     public void setId(long id) {
@@ -101,6 +108,8 @@ private Partecipazione partecipazione;
                 ", description='" + description + '\'' +
                 ", tipo=" + tipo +
                 ", maxParticipants=" + maxParticipants +
+                ", location=" + location +
+
                 '}';
     }
 }

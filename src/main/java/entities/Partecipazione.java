@@ -9,6 +9,7 @@ public class Partecipazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Enumerated(EnumType.STRING)
     private Stato stato;
     @ManyToOne
     @JoinColumn(name = "persona_Id", nullable = false,unique = true)
@@ -16,7 +17,7 @@ public class Partecipazione {
 
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "evento_Id", nullable = false)
 
     private Evento evento;
@@ -50,9 +51,18 @@ public Partecipazione() {}
 
 
 
-    public Evento getEvento() {
-        return evento;
+//    public Evento getEvento() {
+//        return evento;
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Partecipazione{" +
+                "id=" + id +
+                ", stato=" + stato +
+                ", persona=" + persona +
+                ", evento=" + evento +
+                '}';
     }
-
-
 }
